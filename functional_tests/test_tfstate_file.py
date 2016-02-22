@@ -5,7 +5,7 @@ import unittest
 import json
 
 # Python tfstate
-from tfstate.base import Tfstate, TfstateModule
+from tfstate.base import Tfstate, Module
 
 # Functional tests
 from functional_tests.base import BaseFunctionalTest
@@ -46,7 +46,7 @@ class TfstateFileFunctionalTest(BaseFunctionalTest):
         # I want to check that the modules attribute is a list of module objects
         self.assertIsInstance(tfstate.modules, list, 'tfstate modules attribute is not a list')
         for module in tfstate.modules:
-            self.assertIsInstance(module, TfstateModule, 'tfstate module class does not match')
+            self.assertIsInstance(module, Module, 'tfstate module class does not match')
 
     def test_i_can_get_module_attributes(self):
         # I want to load a tfstate, get a module and check its attributes
@@ -58,8 +58,19 @@ class TfstateFileFunctionalTest(BaseFunctionalTest):
         self.assertEqual(first_module.path, first_native_module['path'], 'module path attribute does not match')
         self.assertEqual(
             first_module.outputs, first_native_module['outputs'], 'module outputs attribute does not match')
-        self.assertEqual(
-            first_module.resources, first_native_module['resources'], 'module resources attribute does not match')
+        self.assertIsInstance(first_module.resources, dict, 'modules resources is not a dict')
+
+    def test_i_can_get_resources_from_module(self):
+        # I want to load a tfstate, get a module and get the resources objects from it
+        tfstate = Tfstate(self.tfstate_path)
+        # I get the first module from the tfstate
+        self.assertGreaterEqual(len(tfstate.modules), 1, 'tfstate file does not contain modules')
+        first_module = tfstate.modules[0]
+        for resource_name, resource_data in first_module.native_data['resources'].items():
+            resource_object = first_module.resources.get(resource_name, None)
+            self.assertIsNotNone(resource_object, 'Resource does not exist in module')
+            self.assertEqual(resource_object.name, resource_name, 'Resource name does not match')
+            self.assertEqual(resource_object.native_data, resource_data, 'Resource native data does not match')
 
 
 def suite():
