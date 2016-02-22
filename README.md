@@ -1,5 +1,7 @@
 # python-tfstate
 
+[![Build Status](https://travis-ci.org/rodynnz/python-tfstate.svg?branch=master)](https://travis-ci.org/rodynnz/python-tfstate)
+
 python-tfstate is a Python 3 library to work with Terraform state files (tfstate)
 
 The first aim of this project is to identify every piece of data from a tfstate file.
