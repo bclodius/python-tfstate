@@ -13,7 +13,7 @@ class BaseUnitTest(unittest.TestCase):
 
 
 class BaseResourceUnitTest(unittest.TestCase):
-    def setUp(self):
+    def load_example_json(self, example_path):
         base_path = os.path.dirname(os.path.abspath(__file__))
-        example_file = open(os.path.join(base_path, '../tfstate_examples', self.example_json), 'r')
+        example_file = open(os.path.join(base_path, '../tfstate_examples', example_path), 'r')
         self.example_data = json.load(example_file)

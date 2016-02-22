@@ -12,9 +12,8 @@ from unit_tests.base import BaseResourceUnitTest
 
 
 class AwsResourceUnitTest(BaseResourceUnitTest):
-    example_json = 'aws/aws_eip/aws_eip_example.json'
-
     def test_object_constructor(self):
+        self.load_example_json('aws/aws_eip/aws_eip_example.json')
         resource_name, resource_data = self.example_data.popitem()
         aws_resource = AwsResource(resource_name, resource_data)
         self.assertIsInstance(aws_resource, Resource, "AwsResource object does not inherit from Resource")

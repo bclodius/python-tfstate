@@ -5,15 +5,15 @@ import unittest
 
 # Python tfstate
 from tfstate.provider.aws import AwsResource, AwsEipResource
+from tfstate.exceptions import InvalidResource
 
 # Unit tests
 from unit_tests.base import BaseResourceUnitTest
 
 
 class AwsEipResourceUnitTest(BaseResourceUnitTest):
-    example_json = 'aws/aws_eip/aws_eip_example.json'
-
     def test_object_constructor(self):
+        self.load_example_json('aws/aws_eip/aws_eip_example.json')
         resource_name, resource_data = self.example_data.popitem()
         eip_resource = AwsEipResource(resource_name, resource_data)
         self.assertIsInstance(eip_resource, AwsResource, "AwsEipResource object does not inherit from AwsResource")
@@ -35,6 +35,12 @@ class AwsEipResourceUnitTest(BaseResourceUnitTest):
         self.assertEqual(
             eip_resource.public_ip, native_attributes['public_ip'], "Resource public_ip does not match")
         self.assertEqual(eip_resource.vpc, native_attributes['vpc'], "Resource vpc does not match")
+
+    def test_object_constructor_invalid_type(self):
+        self.load_example_json('aws/aws_eip/aws_eip_example_invalid_type.json')
+        resource_name, resource_data = self.example_data.popitem()
+        with self.assertRaises(InvalidResource):
+            AwsEipResource(resource_name, resource_data)
 
 
 def suite():

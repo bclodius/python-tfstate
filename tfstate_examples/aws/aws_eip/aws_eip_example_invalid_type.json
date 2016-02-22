@@ -1,6 +1,6 @@
 {
     "aws_eip.pub_server": {
-        "type": "aws_eip",
+        "type": "i_am_not_an_aws_eip",
         "depends_on": [
             "aws_instance.server_pub"
         ],
