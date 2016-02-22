@@ -84,8 +84,12 @@ class Resource(object):
         return name and native_data
 
     def __init__(self, resource_name, native_data):
+        self.provider = None
         self.native_data = native_data
         self.name = resource_name
+        self.resource_type = self.native_data.get('type', None)
+        self.dependencies = self.native_data.get('depends_on', [])
+        self.primary_data = self.native_data.get('primary', {})
 
     @staticmethod
     def load_dict(resources_dict):
