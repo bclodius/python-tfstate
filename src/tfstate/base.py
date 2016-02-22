@@ -23,7 +23,7 @@ class Tfstate(object):
         self.load_tfstate_data_from_file()
         self.version = self.native_data.get('version', None)
         self.serial = self.native_data.get('serial', None)
-        self.modules = TfstateModule.load_modules_list(self.native_data.get('modules'))
+        self.modules = Module.load_list(self.native_data.get('modules'))
 
     def load_tfstate_data_from_file(self):
         """
@@ -34,13 +34,13 @@ class Tfstate(object):
         self.native_data = json.load(tfstate_file)
 
 
-class TfstateModule(object):
+class Module(object):
     """
     Class to represent a module object from a tfstate file
 
     Usage::
 
-        TfstateModule(native_data)
+        Module(native_data)
     """
 
     def __eq__(self, other):
@@ -54,17 +54,47 @@ class TfstateModule(object):
         self.native_data = native_data
         self.path = self.native_data.get('path', None)
         self.outputs = self.native_data.get('outputs', None)
-        self.resources = self.native_data.get('resources', None)
+        self.resources = Resource.load_dict(self.native_data.get('resources', {}))
 
     @staticmethod
-    def load_modules_list(module_list):
+    def load_list(module_list):
         """
-        Parse the list of native modules into a list of TfstateModule objects
+        Parse the list of native modules into a list of Module objects
 
         :param list module_list: Native module list
-        :returns: List of TfstateModule
+        :returns: List of Module
         :rtype: list
         """
 
-        object_list = [TfstateModule(module) for module in module_list]
-        return object_list
+        return [Module(module) for module in module_list]
+
+
+class Resource(object):
+    """
+    Class to represent a resource from a tfstate file
+
+    Usage::
+
+        Resource(resource_name, native_data)
+    """
+
+    def __eq__(self, other):
+        name = self.name == other.name
+        native_data = self.native_data == other.native_data
+        return name and native_data
+
+    def __init__(self, resource_name, native_data):
+        self.native_data = native_data
+        self.name = resource_name
+
+    @staticmethod
+    def load_dict(resources_dict):
+        """
+        Parse the list of native modules into a list of Module objects
+
+        :param list module_list: Native module list
+        :returns: List of Module
+        :rtype: list
+        """
+
+        return {name: Resource(name, data) for name, data in resources_dict.items()}
