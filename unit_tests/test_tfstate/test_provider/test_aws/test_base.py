@@ -12,7 +12,7 @@ from unit_tests.base import BaseResourceUnitTest
 
 
 class AwsResourceUnitTest(BaseResourceUnitTest):
-    example_json = 'aws_eip_example.json'
+    example_json = 'aws/aws_eip/aws_eip_example.json'
 
     def test_object_constructor(self):
         resource_name, resource_data = self.example_data.popitem()
