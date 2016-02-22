@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+from tfstate.tfstate import Tfstate
+
 name = 'python-tfstate'
 version = '0.0.0'
 description = 'Python library to parse a Terraform state file (tfstate)'
