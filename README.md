@@ -8,9 +8,19 @@ The first aim of this project is to identify every piece of data from a tfstate 
 
 ## Python version support
 
-python-tfstate is only being developed for Python 3.5. Ports for other Python 3 versions will be surely available when the library is more mature.
+python-tfstate is only being developed for Python 3.4-3.5. Ports for other Python 3 versions will be surely available when the library is more mature.
 
 Backporting to Python 2 is at least now out of the question.
+
+Supported versions:
+    - Python 3.4
+    - Python 3.5
+
+Untested versions:
+    - Python 3.3
+
+Unsupported versions:
+    - Python 2.x
 
 ## Installing
 

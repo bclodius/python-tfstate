@@ -14,6 +14,7 @@ classifiers = [
     'Intended Audience :: Developers',
     'License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)',
     'Operating System :: OS Independent',
+    'Programming Language :: Python :: 3.4',
     'Programming Language :: Python :: 3.5',
     'Topic :: Software Development :: Libraries :: Python Modules'
 ]
