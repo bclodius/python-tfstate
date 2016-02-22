@@ -12,15 +12,15 @@ python-tfstate is only being developed for Python 3.4-3.5. Ports for other Pytho
 
 Backporting to Python 2 is at least now out of the question.
 
-Supported versions:
-    - Python 3.4
-    - Python 3.5
+### Supported versions:
+- Python 3.4
+- Python 3.5
 
-Untested versions:
-    - Python 3.3
+### Untested versions:
+- Python 3.3
 
-Unsupported versions:
-    - Python 2.x
+### Unsupported versions:
+- Python 2.x
 
 ## Installing
 
