@@ -4,7 +4,7 @@
 import unittest
 
 # Unit tests
-from unit_tests import test_tfstate
+from unit_tests.test_tfstate import test_tfstate
 
 
 def suite():
