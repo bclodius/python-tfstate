@@ -34,6 +34,10 @@ class TfstateModuleUnitTest(BaseUnitTest):
         first_module = tfstate.native_data['modules'][0]
         tfstate_module = TfstateModule(first_module)
         self.assertEqual(tfstate_module.native_data, first_module, 'Module data loaded does not match')
+        self.assertEqual(tfstate_module.path, first_module['path'], 'Module path attribute does not match')
+        self.assertEqual(tfstate_module.outputs, first_module['outputs'], 'Module outputs attribute does not match')
+        self.assertEqual(
+            tfstate_module.resources, first_module['resources'], 'Module resources attribute does not match')
 
 
 def suite():
