@@ -36,8 +36,11 @@ class ModuleUnitTest(BaseUnitTest):
         self.assertEqual(tfstate_module.native_data, first_module, 'Module data loaded does not match')
         self.assertEqual(tfstate_module.path, first_module['path'], 'Module path attribute does not match')
         self.assertEqual(tfstate_module.outputs, first_module['outputs'], 'Module outputs attribute does not match')
+        resources_dict = {name: Resource(name, data) for name, data in first_module['resources'].items()}
+        print(resources_dict)
+        print(tfstate_module.resources)
         self.assertEqual(
-            tfstate_module.resources, first_module['resources'], 'Module resources attribute does not match')
+            tfstate_module.resources, resources_dict, 'Module resources attribute does not match')
 
 
 class ResourceUnitTest(BaseUnitTest):

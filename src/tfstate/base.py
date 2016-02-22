@@ -78,6 +78,11 @@ class Resource(object):
         Resource(resource_name, native_data)
     """
 
+    def __eq__(self, other):
+        name = self.name == other.name
+        native_data = self.native_data == other.native_data
+        return name and native_data
+
     def __init__(self, resource_name, native_data):
         self.native_data = native_data
         self.name = resource_name
