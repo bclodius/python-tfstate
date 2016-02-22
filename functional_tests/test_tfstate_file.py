@@ -48,6 +48,19 @@ class TfstateFileFunctionalTest(BaseFunctionalTest):
         for module in tfstate.modules:
             self.assertIsInstance(module, TfstateModule, 'tfstate module class does not match')
 
+    def test_i_can_get_module_attributes(self):
+        # I want to load a tfstate, get a module and check its attributes
+        tfstate = Tfstate(self.tfstate_path)
+        # I get the first module from the tfstate
+        self.assertGreaterEqual(len(tfstate.modules), 1, 'tfstate file does not contain modules')
+        first_native_module = tfstate.native_data['modules'][0]
+        first_module = tfstate.modules[0]
+        self.assertEqual(first_module.path, first_native_module['path'], 'module path attribute does not match')
+        self.assertEqual(
+            first_module.outputs, first_native_module['outputs'], 'module outputs attribute does not match')
+        self.assertEqual(
+            first_module.resources, first_native_module['resources'], 'module resources attribute does not match')
+
 
 def suite():
     loader = unittest.TestLoader()

@@ -52,6 +52,9 @@ class TfstateModule(object):
         """
 
         self.native_data = native_data
+        self.path = self.native_data.get('path', None)
+        self.outputs = self.native_data.get('outputs', None)
+        self.resources = self.native_data.get('resources', None)
 
     @staticmethod
     def load_modules_list(module_list):
