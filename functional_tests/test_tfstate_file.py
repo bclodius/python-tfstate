@@ -5,7 +5,7 @@ import unittest
 import json
 
 # Python tfstate
-from tfstate.base import Tfstate
+from tfstate.base import Tfstate, TfstateModule
 
 # Functional tests
 from functional_tests.base import BaseFunctionalTest
@@ -39,6 +39,14 @@ class TfstateFileFunctionalTest(BaseFunctionalTest):
         self.assertEqual(tfstate.serial, tfstate_data['serial'], 'tfstate serial does not match')
         # And that the modules attribute is a list
         self.assertIsInstance(tfstate.modules, list, 'tfstate modules attribute is not a list')
+
+    def test_i_can_get_a_list_of_module_objects(self):
+        # I want to load a tfstate and get the list of module objects parsed
+        tfstate = Tfstate(self.tfstate_path)
+        # I want to check that the modules attribute is a list of module objects
+        self.assertIsInstance(tfstate.modules, list, 'tfstate modules attribute is not a list')
+        for module in tfstate.modules:
+            self.assertIsInstance(module, TfstateModule, 'tfstate module class does not match')
 
 
 def suite():

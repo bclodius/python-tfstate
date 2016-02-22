@@ -4,12 +4,12 @@
 import unittest
 
 # Unit tests
-from unit_tests.test_tfstate import test_tfstate
+from unit_tests.test_tfstate import test_base
 
 
 def suite():
     suite = unittest.TestSuite()
-    suite.addTests(test_tfstate.suite())
+    suite.addTests(test_base.suite())
     return suite
 
 if __name__ == '__main__':
