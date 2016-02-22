@@ -4,7 +4,7 @@
 import unittest
 
 # Python tfstate
-from tfstate import Tfstate
+from tfstate.base import Tfstate
 
 # Unit tests
 from unit_tests.base import BaseUnitTest

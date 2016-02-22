@@ -5,7 +5,7 @@ import unittest
 import json
 
 # Python tfstate
-from tfstate import Tfstate
+from tfstate.base import Tfstate
 
 # Functional tests
 from functional_tests.base import BaseFunctionalTest
