@@ -4,7 +4,7 @@ python:
     - "3.5"
 install:
     - "python setup.py install"
-    - "pip install --user -r requirements/tests.txt"
+    - "pip install -r requirements/tests.txt"
 script:
     - "nosetests -v unit_tests"
     - "nosetests -v functional_tests"
