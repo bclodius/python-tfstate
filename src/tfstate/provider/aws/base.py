@@ -16,3 +16,4 @@ class AwsResource(Resource):
     def __init__(self, resource_name, native_data):
         super().__init__(resource_name, native_data)
         self.provider = "aws"
+        self.id = self.primary_data['id']

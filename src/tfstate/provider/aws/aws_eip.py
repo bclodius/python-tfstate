@@ -19,7 +19,6 @@ class AwsEipResource(AwsResource):
         if self.resource_type != "aws_eip":
             raise InvalidResource("AwsEipResource must be of 'aws_eip' type")
 
-        self.id = self.primary_data['id']
         attributes = self.primary_data['attributes']
         self.association_id = attributes['association_id']
         self.domain = attributes['domain']

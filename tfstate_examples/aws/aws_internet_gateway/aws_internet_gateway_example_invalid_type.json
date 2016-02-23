@@ -1,0 +1,19 @@
+{
+    "aws_internet_gateway.default": {
+        "type": "this_is_not_an_igw",
+        "depends_on": [
+            "aws_vpc.vpc_test"
+        ],
+        "primary": {
+            "id": "igw-b7bbf0d2",
+            "attributes": {
+                "id": "igw-b7bbf0d2",
+                "tags.#": "3",
+                "tags.Billing": "Test",
+                "tags.Env": "Test",
+                "tags.Name": "Test-GW-PUB-Example",
+                "vpc_id": "vpc-51957535"
+            }
+        }
+    }
+}

@@ -20,6 +20,7 @@ class AwsResourceUnitTest(BaseResourceUnitTest):
         self.assertEqual(aws_resource.provider, "aws", "AwsResource provider is not aws")
         self.assertEqual(aws_resource.name, resource_name, "AwsResource name does not match")
         self.assertEqual(aws_resource.native_data, resource_data, "AwsResource native data does not match")
+        self.assertEqual(aws_resource.id, aws_resource.primary_data['id'], "Resource ID does not match")
 
 
 def suite():
