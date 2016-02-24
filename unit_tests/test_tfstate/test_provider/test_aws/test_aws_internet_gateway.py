@@ -25,12 +25,8 @@ class AwsInternetGatewayResourceUnitTest(BaseResourceUnitTest):
         native_attributes = native_primary['attributes']
         self.assertEqual(igw_resource.id, native_primary['id'], "Resource ID does not match")
         self.assertEqual(igw_resource.vpc_id, native_attributes['vpc_id'], "Resource vpc_id does not match")
-        self.assertTrue(hasattr(igw_resource, 'tags'), "Resource tags does not exist")
         # Tags checking
-        self.assertEqual(igw_resource.tags['Env'], native_attributes['tags.Env'], 'Tag Env does not match')
-        self.assertEqual(igw_resource.tags['Name'], native_attributes['tags.Name'], 'Tag Name does not match')
-        self.assertEqual(
-            igw_resource.tags['Billing'], native_attributes['tags.Billing'], 'Tag Billing does not match')
+        self.check_tags(igw_resource, native_attributes)
 
     def test_object_constructor_invalid_type(self):
         self.load_example_json('aws/aws_internet_gateway/aws_internet_gateway_example_invalid_type.json')

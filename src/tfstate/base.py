@@ -122,6 +122,20 @@ class Resource(object):
                 parsed_dict = Resource._extend_nested_directory(parsed_dict, parsed_line)
         self.compound_attributes = parsed_dict
 
+    def get_boolean_attribute(self, attribute):
+        """
+        Parse a boolean attribute to a native python boolean
+
+        :param str attribute: Parse the attribute given
+        """
+
+        attributes = self.primary_data['attributes']
+        value = attributes.get(attribute, None)
+        if value is None:
+            raise AttributeError('Attribute {} does not exist'.format(attribute))
+        else:
+            return True if value == 'true' else False
+
     @staticmethod
     def load_dict(resources_dict):
         """

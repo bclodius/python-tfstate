@@ -22,5 +22,5 @@ class AwsSubnetResource(AwsResource):
         self.availability_zone = attributes['availability_zone']
         self.cidr_block = attributes['cidr_block']
         self.vpc_id = attributes['vpc_id']
-        self.map_public_ip_on_launch = True if attributes['map_public_ip_on_launch'] == 'true' else False
+        self.map_public_ip_on_launch = self.get_boolean_attribute('map_public_ip_on_launch')
         self.tags = self.compound_attributes.get('tags', {})

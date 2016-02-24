@@ -26,11 +26,7 @@ class AwsRouteTableResourceUnitTest(BaseResourceUnitTest):
         self.assertEqual(rt_resource.id, native_primary['id'], "Resource ID does not match")
         self.assertEqual(rt_resource.vpc_id, native_attributes['vpc_id'], "Resource vpc_id does not match")
         # Tags checking
-        self.assertTrue(hasattr(rt_resource, 'tags'), "Resource tags does not exist")
-        self.assertEqual(rt_resource.tags['Env'], native_attributes['tags.Env'], 'Tag Env does not match')
-        self.assertEqual(rt_resource.tags['Name'], native_attributes['tags.Name'], 'Tag Name does not match')
-        self.assertEqual(
-            rt_resource.tags['Billing'], native_attributes['tags.Billing'], 'Tag Billing does not match')
+        self.check_tags(rt_resource, native_attributes)
         # Routes checking
         self.assertTrue(hasattr(rt_resource, 'routes'), "Resource routes does not exist")
         for route, route_data in rt_resource.routes.items():

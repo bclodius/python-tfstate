@@ -33,12 +33,7 @@ class AwsSubnetResourceUnitTest(BaseResourceUnitTest):
             subnet_resource.map_public_ip_on_launch, map_public_ip_on_launch,
             "Resource map_public_ip_on_launch does not match")
         self.assertEqual(subnet_resource.vpc_id, native_attributes['vpc_id'], "Resource vpc_id does not match")
-        # Tags checking
-        self.assertTrue(hasattr(subnet_resource, 'tags'), "Resource tags does not exist")
-        self.assertEqual(subnet_resource.tags['Env'], native_attributes['tags.Env'], 'Tag Env does not match')
-        self.assertEqual(subnet_resource.tags['Name'], native_attributes['tags.Name'], 'Tag Name does not match')
-        self.assertEqual(
-            subnet_resource.tags['Billing'], native_attributes['tags.Billing'], 'Tag Billing does not match')
+        self.check_tags(subnet_resource, native_attributes)
 
     def test_object_constructor_invalid_type(self):
         self.load_example_json(
