@@ -3,7 +3,7 @@
         "type": "aws_route_table",
         "depends_on": [
             "aws_internet_gateway.default",
-            "aws_vpc.vpc_prueba"
+            "aws_vpc.vpc_test"
         ],
         "primary": {
             "id": "rtb-2e16ec4a",
@@ -17,9 +17,9 @@
                 "route.1931076524.network_interface_id": "",
                 "route.1931076524.vpc_peering_connection_id": "",
                 "tags.#": "3",
-                "tags.Billing": "CSF",
-                "tags.Env": "CSF",
-                "tags.Name": "CSF-Route-PUB-PruebaArma",
+                "tags.Billing": "Test",
+                "tags.Env": "Test",
+                "tags.Name": "Test-Route-PUB-Example",
                 "vpc_id": "vpc-51957535"
             }
         }
