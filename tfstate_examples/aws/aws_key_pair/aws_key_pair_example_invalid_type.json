@@ -1,0 +1,16 @@
+{
+    "aws_key_pair.deployer": {
+        "type": "aws_key_invalid_pair",
+        "primary": {
+            "id": "deployer-key-server",
+            "attributes": {
+                "id": "deployer-key-server",
+                "key_name": "deployer-key-server",
+                "public_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDvOHjvEXyaRRUDaq7YgZ7Iqn1AKNPDihzGR5QSMGaFAjqKzczSpyuq+msGPiDvyoCmpnlmqIsng5G6Qv5c2C+5IQZDsU5Hiuske7JfxRdg1NQDTEIboRlUYn1r4XYP2lYW10HYjyrdjNNF3Ud/Plc3e8gEqvMP3yLkJImVGjshd1KUWBPmIN0fI0qT3tH0jR5KTxR7I9kdGVr6lLerYaLQZvcbrJq4SopVJv/G/JsAFGeIlsp5i2j8/6iQYS29uzh3/W26RUXCJ/XDUSmySh36PTEA6IIi8RuYXOQtuzUgzEFSq9EA9kxje3u+thvTgUVl/6SFs1gTfSQ/ckmLEQBJ insecure-deployer"
+            },
+            "meta": {
+                "schema_version": "1"
+            }
+        }
+    }
+}
