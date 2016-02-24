@@ -1,0 +1,22 @@
+{
+    "aws_subnet.subnet_pub": {
+        "type": "aws_subnet",
+        "depends_on": [
+            "aws_vpc.vpc_test"
+        ],
+        "primary": {
+            "id": "subnet-dca58085",
+            "attributes": {
+                "availability_zone": "us-west-2a",
+                "cidr_block": "10.0.0.0/24",
+                "id": "subnet-dca58085",
+                "map_public_ip_on_launch": "true",
+                "tags.#": "3",
+                "tags.Billing": "Test",
+                "tags.Env": "Test",
+                "tags.Name": "Test-Subnet-PUB-Example",
+                "vpc_id": "vpc-51957535"
+            }
+        }
+    }
+}

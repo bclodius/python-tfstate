@@ -15,19 +15,20 @@ class AwsRouteTableAssociationResourceUnitTest(BaseResourceUnitTest):
     def test_object_constructor(self):
         self.load_example_json('aws/aws_route_table_association/aws_route_table_association_example.json')
         resource_name, resource_data = self.example_data.popitem()
-        rt_resource = AwsRouteTableAssociationResource(resource_name, resource_data)
+        rta_resource = AwsRouteTableAssociationResource(resource_name, resource_data)
         self.assertIsInstance(
-            rt_resource, AwsResource, "AwsRouteTableAssociationResource object does not inherit from AwsResource")
+            rta_resource, AwsResource, "AwsRouteTableAssociationResource object does not inherit from AwsResource")
         self.assertEqual(
-            rt_resource.resource_type, "aws_route_table_association",
+            rta_resource.resource_type, "aws_route_table_association",
             "Resource type is not aws_route_table_association")
         # Attribute checks
-        native_primary = rt_resource.primary_data
+        native_primary = rta_resource.primary_data
         native_attributes = native_primary['attributes']
-        self.assertEqual(rt_resource.id, native_primary['id'], "Resource ID does not match")
+        self.assertEqual(rta_resource.id, native_primary['id'], "Resource ID does not match")
         self.assertEqual(
-            rt_resource.route_table_id, native_attributes['route_table_id'], "Resource route_table_id does not match")
-        self.assertEqual(rt_resource.subnet_id, native_attributes['subnet_id'], "Resource subnet_id does not match")
+            rta_resource.route_table_id, native_attributes['route_table_id'],
+            "Resource route_table_id does not match")
+        self.assertEqual(rta_resource.subnet_id, native_attributes['subnet_id'], "Resource subnet_id does not match")
 
     def test_object_constructor_invalid_type(self):
         self.load_example_json(
