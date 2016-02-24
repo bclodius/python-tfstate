@@ -3,6 +3,9 @@
 # Python stdlib
 import unittest
 
+# py.test
+import pytest
+
 # Python tfstate
 from tfstate.provider.aws import AwsResource, AwsRouteTableResource
 from tfstate.exceptions import InvalidResource
@@ -11,6 +14,7 @@ from tfstate.exceptions import InvalidResource
 from unit_tests.base import BaseResourceUnitTest
 
 
+@pytest.mark.provider_aws
 class AwsRouteTableResourceUnitTest(BaseResourceUnitTest):
     def test_object_constructor(self):
         self.load_example_json('aws/aws_route_table/aws_route_table_example.json')

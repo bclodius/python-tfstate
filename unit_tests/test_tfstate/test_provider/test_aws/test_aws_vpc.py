@@ -3,6 +3,9 @@
 # Python stdlib
 import unittest
 
+# py.test
+import pytest
+
 # Python tfstate
 from tfstate.provider.aws import AwsResource, AwsVpcResource
 from tfstate.exceptions import InvalidResource
@@ -11,6 +14,7 @@ from tfstate.exceptions import InvalidResource
 from unit_tests.base import BaseResourceUnitTest
 
 
+@pytest.mark.provider_aws
 class AwsVpcResourceUnitTest(BaseResourceUnitTest):
     def test_object_constructor(self):
         self.load_example_json('aws/aws_vpc/aws_vpc_example.json')

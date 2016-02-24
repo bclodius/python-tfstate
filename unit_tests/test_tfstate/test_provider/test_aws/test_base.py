@@ -3,6 +3,9 @@
 # Python stdlib
 import unittest
 
+# py.test
+import pytest
+
 # Python tfstate
 from tfstate.base import Resource
 from tfstate.provider.aws import AwsResource
@@ -11,6 +14,7 @@ from tfstate.provider.aws import AwsResource
 from unit_tests.base import BaseResourceUnitTest
 
 
+@pytest.mark.provider_aws
 class AwsResourceUnitTest(BaseResourceUnitTest):
     def test_object_constructor(self):
         self.load_example_json('aws/aws_eip/aws_eip_example.json')
