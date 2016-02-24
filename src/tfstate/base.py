@@ -98,6 +98,10 @@ class Resource(object):
         if len(name_list) > 1:
             nested_value = Resource._parse_nested_parameters(name_list[1:], value)
         else:
+            if value == 'true':
+                value = True
+            elif value == 'false':
+                value = False
             nested_value = value
 
         return {nested_name: nested_value}

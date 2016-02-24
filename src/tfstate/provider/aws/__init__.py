@@ -8,3 +8,4 @@ from tfstate.provider.aws.aws_route_table_association import AwsRouteTableAssoci
 from tfstate.provider.aws.aws_subnet import AwsSubnetResource
 from tfstate.provider.aws.aws_vpc import AwsVpcResource
 from tfstate.provider.aws.aws_key_pair import AwsKeyPairResource
+from tfstate.provider.aws.aws_instance import AwsInstanceResource
