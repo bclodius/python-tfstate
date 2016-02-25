@@ -52,7 +52,7 @@ class ResourceUnitTest(BaseUnitTest):
         for resource_name, resource_data in module.native_data['resources'].items():
             resource = Resource(resource_name, resource_data)
             self.assertIsNone(resource.provider, 'Resource provider should be None')
-            self.assertEqual(resource_name, resource.name, 'Resource name does not match')
+            self.assertEqual(resource_name, resource.resource_name, 'Resource name does not match')
             self.assertEqual(resource_data, resource.native_data, 'Resource native data does not match')
             self.assertEqual(resource_data.get('type', None), resource.resource_type, 'Resource type does not match')
             self.assertEqual(

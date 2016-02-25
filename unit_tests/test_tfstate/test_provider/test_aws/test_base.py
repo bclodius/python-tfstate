@@ -22,7 +22,7 @@ class AwsResourceUnitTest(BaseResourceUnitTest):
         aws_resource = AwsResource(resource_name, resource_data)
         self.assertIsInstance(aws_resource, Resource, "AwsResource object does not inherit from Resource")
         self.assertEqual(aws_resource.provider, "aws", "AwsResource provider is not aws")
-        self.assertEqual(aws_resource.name, resource_name, "AwsResource name does not match")
+        self.assertEqual(aws_resource.resource_name, resource_name, "AwsResource name does not match")
         self.assertEqual(aws_resource.native_data, resource_data, "AwsResource native data does not match")
         self.assertEqual(aws_resource.id, aws_resource.primary_data['id'], "Resource ID does not match")
 
