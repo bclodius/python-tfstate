@@ -26,6 +26,7 @@ class AwsInstanceResourceUnitTest(BaseResourceUnitTest):
         # Attribute checks
         native_primary = ins_resource.primary_data
         native_attributes = native_primary['attributes']
+        native_meta = native_primary['meta']
         self.assertEqual(ins_resource.id, native_primary['id'], "Resource ID does not match")
         self.assertEqual(ins_resource.ami, native_attributes['ami'], "Resource AMI does not match")
         self.assertEqual(
@@ -69,6 +70,8 @@ class AwsInstanceResourceUnitTest(BaseResourceUnitTest):
         self.assertTrue(hasattr(ins_resource, 'security_groups'), "Resource security_groups does not exist")
         self.assertTrue(
             hasattr(ins_resource, 'vpc_security_group_ids'), "Resource vpc_security_group_ids does not exist")
+        self.assertEqual(
+            ins_resource.metadata, native_meta, "Resource metadata does not match")
 
     def test_object_constructor_invalid_type(self):
         self.load_example_json(

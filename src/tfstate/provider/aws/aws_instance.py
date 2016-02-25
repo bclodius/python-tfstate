@@ -40,3 +40,4 @@ class AwsInstanceResource(AwsResource):
         self.root_block_device = self.compound_attributes.get('root_block_device', {})
         self.security_groups = self.compound_attributes.get('security_groups', {})
         self.vpc_security_group_ids = self.compound_attributes.get('vpc_security_group_ids', {})
+        self.metadata = self.primary_data['meta']
