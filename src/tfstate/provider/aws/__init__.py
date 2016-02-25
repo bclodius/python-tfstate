@@ -9,3 +9,4 @@ from tfstate.provider.aws.aws_subnet import AwsSubnetResource
 from tfstate.provider.aws.aws_vpc import AwsVpcResource
 from tfstate.provider.aws.aws_key_pair import AwsKeyPairResource
 from tfstate.provider.aws.aws_instance import AwsInstanceResource
+from tfstate.provider.aws.aws_security_group import AwsSecurityGroupResource
