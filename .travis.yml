@@ -6,5 +6,5 @@ install:
     - "python setup.py install"
     - "pip install -r requirements/tests.txt"
 script:
-    - "nosetests -v unit_tests"
-    - "nosetests -v functional_tests"
+    - "py.test -v unit_tests"
+    - "py.test -v functional_tests"

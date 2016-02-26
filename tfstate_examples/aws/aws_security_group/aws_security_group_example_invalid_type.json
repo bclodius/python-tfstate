@@ -1,0 +1,59 @@
+{
+    "aws_security_group.security_group": {
+        "type": "aws_i_should_be_an_sg",
+        "depends_on": [
+            "aws_vpc.vpc_test"
+        ],
+        "primary": {
+            "id": "sg-bc3c9cdb",
+            "attributes": {
+                "description": "Security Group",
+                "egress.#": "1",
+                "egress.482069346.cidr_blocks.#": "1",
+                "egress.482069346.cidr_blocks.0": "0.0.0.0/0",
+                "egress.482069346.from_port": "0",
+                "egress.482069346.protocol": "-1",
+                "egress.482069346.security_groups.#": "0",
+                "egress.482069346.self": "false",
+                "egress.482069346.to_port": "0",
+                "id": "sg-bc3c9cdb",
+                "ingress.#": "4",
+                "ingress.2214680975.cidr_blocks.#": "1",
+                "ingress.2214680975.cidr_blocks.0": "0.0.0.0/0",
+                "ingress.2214680975.from_port": "80",
+                "ingress.2214680975.protocol": "tcp",
+                "ingress.2214680975.security_groups.#": "0",
+                "ingress.2214680975.self": "false",
+                "ingress.2214680975.to_port": "80",
+                "ingress.2541437006.cidr_blocks.#": "1",
+                "ingress.2541437006.cidr_blocks.0": "0.0.0.0/0",
+                "ingress.2541437006.from_port": "22",
+                "ingress.2541437006.protocol": "tcp",
+                "ingress.2541437006.security_groups.#": "0",
+                "ingress.2541437006.self": "false",
+                "ingress.2541437006.to_port": "22",
+                "ingress.2617001939.cidr_blocks.#": "1",
+                "ingress.2617001939.cidr_blocks.0": "0.0.0.0/0",
+                "ingress.2617001939.from_port": "443",
+                "ingress.2617001939.protocol": "tcp",
+                "ingress.2617001939.security_groups.#": "0",
+                "ingress.2617001939.self": "false",
+                "ingress.2617001939.to_port": "443",
+                "ingress.516175195.cidr_blocks.#": "1",
+                "ingress.516175195.cidr_blocks.0": "0.0.0.0/0",
+                "ingress.516175195.from_port": "8080",
+                "ingress.516175195.protocol": "tcp",
+                "ingress.516175195.security_groups.#": "0",
+                "ingress.516175195.self": "false",
+                "ingress.516175195.to_port": "8080",
+                "name": "Security Group",
+                "owner_id": "837533396409",
+                "tags.#": "3",
+                "tags.Billing": "Test",
+                "tags.Env": "Test",
+                "tags.Name": "Test-SG-Example",
+                "vpc_id": "vpc-51957535"
+            }
+        }
+    }
+}

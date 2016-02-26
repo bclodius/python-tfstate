@@ -1,0 +1,22 @@
+{
+    "aws_vpc.vpc_test": {
+        "type": "aws_not_a_vpc_hehe",
+        "primary": {
+            "id": "vpc-51957535",
+            "attributes": {
+                "cidr_block": "10.0.0.0/16",
+                "default_network_acl_id": "acl-e5976281",
+                "default_security_group_id": "sg-b63c9cd1",
+                "dhcp_options_id": "dopt-5223c237",
+                "enable_dns_hostnames": "true",
+                "enable_dns_support": "true",
+                "id": "vpc-51957535",
+                "main_route_table_id": "rtb-2216ec46",
+                "tags.#": "3",
+                "tags.Billing": "Test",
+                "tags.Env": "Test",
+                "tags.Name": "Test-VPC-Example"
+            }
+        }
+    }
+}

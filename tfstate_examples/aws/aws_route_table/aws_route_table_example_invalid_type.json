@@ -1,0 +1,27 @@
+{
+    "aws_route_table.pub_routing": {
+        "type": "not_a_route_table",
+        "depends_on": [
+            "aws_internet_gateway.default",
+            "aws_vpc.vpc_test"
+        ],
+        "primary": {
+            "id": "rtb-2e16ec4a",
+            "attributes": {
+                "id": "rtb-2e16ec4a",
+                "propagating_vgws.#": "0",
+                "route.#": "1",
+                "route.1931076524.cidr_block": "0.0.0.0/0",
+                "route.1931076524.gateway_id": "igw-b7bbf0d2",
+                "route.1931076524.instance_id": "",
+                "route.1931076524.network_interface_id": "",
+                "route.1931076524.vpc_peering_connection_id": "",
+                "tags.#": "3",
+                "tags.Billing": "Test",
+                "tags.Env": "Test",
+                "tags.Name": "CSF-Route-PUB-Example",
+                "vpc_id": "vpc-51957535"
+            }
+        }
+    }
+}

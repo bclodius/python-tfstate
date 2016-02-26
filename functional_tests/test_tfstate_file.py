@@ -69,7 +69,7 @@ class TfstateFileFunctionalTest(BaseFunctionalTest):
         for resource_name, resource_data in first_module.native_data['resources'].items():
             resource_object = first_module.resources.get(resource_name, None)
             self.assertIsNotNone(resource_object, 'Resource does not exist in module')
-            self.assertEqual(resource_object.name, resource_name, 'Resource name does not match')
+            self.assertEqual(resource_object.resource_name, resource_name, 'Resource name does not match')
             self.assertEqual(resource_object.native_data, resource_data, 'Resource native data does not match')
 
 

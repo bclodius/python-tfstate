@@ -1,0 +1,17 @@
+{
+    "aws_route_table_association.public": {
+        "type": "aws_route_table_association",
+        "depends_on": [
+            "aws_route_table.pub_routing",
+            "aws_subnet.subnet_pub"
+        ],
+        "primary": {
+            "id": "rtbassoc-8450d7e0",
+            "attributes": {
+                "id": "rtbassoc-8450d7e0",
+                "route_table_id": "rtb-2e16ec4a",
+                "subnet_id": "subnet-dca58085"
+            }
+        }
+    }
+}

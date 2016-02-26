@@ -1,0 +1,21 @@
+{
+    "aws_eip.pub_server": {
+        "type": "aws_eip",
+        "depends_on": [
+            "aws_instance.server_pub"
+        ],
+        "primary": {
+            "id": "eipalloc-4810e82c",
+            "attributes": {
+                "association_id": "eipassoc-81132ae6",
+                "domain": "vpc",
+                "id": "eipalloc-4810e82c",
+                "instance": "i-ffb8fd25",
+                "network_interface": "eni-33c2d369",
+                "private_ip": "10.0.0.10",
+                "public_ip": "50.50.100.100",
+                "vpc": "true"
+            }
+        }
+    }
+}

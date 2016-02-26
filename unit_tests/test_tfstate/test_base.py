@@ -51,8 +51,14 @@ class ResourceUnitTest(BaseUnitTest):
         resource = None
         for resource_name, resource_data in module.native_data['resources'].items():
             resource = Resource(resource_name, resource_data)
-            self.assertEqual(resource_name, resource.name, 'Resource name does not match')
+            self.assertIsNone(resource.provider, 'Resource provider should be None')
+            self.assertEqual(resource_name, resource.resource_name, 'Resource name does not match')
             self.assertEqual(resource_data, resource.native_data, 'Resource native data does not match')
+            self.assertEqual(resource_data.get('type', None), resource.resource_type, 'Resource type does not match')
+            self.assertEqual(
+                resource_data.get('depends_on', []), resource.dependencies, 'Resource dependencies does not match')
+            self.assertEqual(
+                resource_data.get('primary', {}), resource.primary_data, 'Resource primary data does not match')
 
 
 def suite():
@@ -60,6 +66,7 @@ def suite():
     suite = unittest.TestSuite()
     suite.addTest(loader.loadTestsFromTestCase(TfstateUnitTest))
     suite.addTest(loader.loadTestsFromTestCase(ModuleUnitTest))
+    suite.addTest(loader.loadTestsFromTestCase(ResourceUnitTest))
     return suite
 
 if __name__ == '__main__':

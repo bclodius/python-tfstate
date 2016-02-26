@@ -1,0 +1,49 @@
+{
+    "aws_instance.server_pub": {
+        "type": "aws_instance",
+        "depends_on": [
+            "aws_key_pair.deployer",
+            "aws_security_group.security_group",
+            "aws_subnet.subnet_pub"
+        ],
+        "primary": {
+            "id": "i-ffb8fd25",
+            "attributes": {
+                "ami": "ami-5189a661",
+                "associate_public_ip_address": "true",
+                "availability_zone": "us-west-2a",
+                "ebs_block_device.#": "0",
+                "ebs_optimized": "false",
+                "ephemeral_block_device.#": "0",
+                "iam_instance_profile": "",
+                "id": "i-ffb8fd25",
+                "instance_type": "t2.small",
+                "key_name": "deployer-key-server",
+                "monitoring": "false",
+                "private_dns": "ip-10-0-0-96.us-west-2.compute.internal",
+                "private_ip": "10.0.0.96",
+                "public_dns": "ec2-52-10-250-250.us-west-2.compute.amazonaws.com",
+                "public_ip": "52.10.250.250",
+                "root_block_device.#": "1",
+                "root_block_device.0.delete_on_termination": "true",
+                "root_block_device.0.iops": "24",
+                "root_block_device.0.volume_size": "8",
+                "root_block_device.0.volume_type": "gp2",
+                "security_groups.#": "1",
+                "security_groups.1571887686": "sg-bc3c9cdb",
+                "source_dest_check": "false",
+                "subnet_id": "subnet-dca58085",
+                "tags.#": "3",
+                "tags.Billing": "Test",
+                "tags.Env": "Test",
+                "tags.Name": "Test-server-Example",
+                "tenancy": "default",
+                "vpc_security_group_ids.#": "1",
+                "vpc_security_group_ids.1571887686": "sg-bc3c9cdb"
+            },
+            "meta": {
+                "schema_version": "1"
+            }
+        }
+    }
+}
