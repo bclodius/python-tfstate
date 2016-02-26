@@ -24,6 +24,7 @@ class Resource(object):
         self.primary_data = self.native_data.get('primary', {})
         self.id = self.primary_data['id']
         self.parse_compound_attributes()
+        self.relations = {}
 
     @staticmethod
     def _parse_nested_parameters(name_list, value):
