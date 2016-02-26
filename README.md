@@ -1,4 +1,4 @@
-# python-tfstate
+# python-tfstate 0.1.0
 
 [![Build Status](https://travis-ci.org/rodynnz/python-tfstate.svg?branch=master)](https://travis-ci.org/rodynnz/python-tfstate)
 
@@ -36,7 +36,7 @@ Backporting to Python 2 is at least now out of the question.
 
 ### From pip
 
-Soon...
+`pip install python-tfstate`
 
 ## Using python-tfstate
 
