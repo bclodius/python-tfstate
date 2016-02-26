@@ -6,7 +6,7 @@ import unittest
 # Python tfstate
 from tfstate.exceptions import InvalidResource
 from tfstate.base import Resource
-from tfstate.null_resource import NullResource
+from tfstate.provider.other.null_resource import NullResource
 
 # Unit tests
 from unit_tests.base import BaseResourceUnitTest
