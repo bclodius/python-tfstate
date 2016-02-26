@@ -84,6 +84,25 @@ class TfstateFileFunctionalTest(BaseFunctionalTest):
             expected_class = ResourceMap.get(resource_name)
             self.assertIsInstance(resource_object, expected_class)
 
+    def test_i_can_get_the_resources_dependencies_as_objects(self):
+        # I want to load a tfstate, parse its contents and look at every resource
+        # to check that its dependencies are resource objects
+        tfstate = Tfstate(self.tfstate_path)
+        # I get the first module from the tfstate
+        self.assertGreaterEqual(len(tfstate.modules), 1, 'tfstate file does not contain modules')
+        first_module = tfstate.modules[0]
+        # Check that the resource objects have dependencies and that the dependencies are resource objects
+        for resource_name, resource_data in first_module.native_data['resources'].items():
+            resource_object = first_module.resources.get(resource_name, None)
+            self.assertEqual(
+                len(resource_object.dependencies),
+                len(resource_object.relations.keys()),
+                "Resource relations does not match dependencies list")
+            for related_name, related_object in resource_object.relations.items():
+                expected_class = ResourceMap.get(related_name)
+                self.assertIn(related_name, resource_object.dependencies)
+                self.assertIsInstance(related_object, expected_class)
+
 
 def suite():
     loader = unittest.TestLoader()

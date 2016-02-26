@@ -26,6 +26,8 @@ class Module(object):
         self.outputs = self.native_data.get('outputs', None)
         self.resources = Resource.load_dict(self.native_data.get('resources', {}))
 
+        self.parse_resource_relations()
+
     @staticmethod
     def load_list(module_list):
         """
@@ -37,3 +39,16 @@ class Module(object):
         """
 
         return [Module(module) for module in module_list]
+
+    def parse_resource_relations(self):
+        """
+        Parse the resource dependencies and adds its relations
+        """
+
+        for resource_name, resource_object in self.resources.items():
+            print(resource_name)
+            for relation_name in resource_object.dependencies:
+                print(relation_name)
+                relation_object = self.resources[relation_name]
+                resource_object.relations[relation_name] = relation_object
+                print(resource_object.relations)
