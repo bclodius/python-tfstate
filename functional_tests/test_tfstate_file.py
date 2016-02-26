@@ -5,7 +5,7 @@ import unittest
 import json
 
 # Python tfstate
-from tfstate.base import Tfstate, Module
+from tfstate.base import Tfstate, Module, ResourceMap
 
 # Functional tests
 from functional_tests.base import BaseFunctionalTest
@@ -71,6 +71,18 @@ class TfstateFileFunctionalTest(BaseFunctionalTest):
             self.assertIsNotNone(resource_object, 'Resource does not exist in module')
             self.assertEqual(resource_object.resource_name, resource_name, 'Resource name does not match')
             self.assertEqual(resource_object.native_data, resource_data, 'Resource native data does not match')
+
+    def test_i_can_get_the_correct_resources_from_file(self):
+        # I want to load a tfstate, parse its contents and get loaded resources with its correct resource classes
+        tfstate = Tfstate(self.tfstate_path)
+        # I get the first module from the tfstate
+        self.assertGreaterEqual(len(tfstate.modules), 1, 'tfstate file does not contain modules')
+        first_module = tfstate.modules[0]
+        # Check that the resource classes belong to the resources parsed
+        for resource_name, resource_data in first_module.native_data['resources'].items():
+            resource_object = first_module.resources.get(resource_name, None)
+            expected_class = ResourceMap.get(resource_name)
+            self.assertIsInstance(resource_object, expected_class)
 
 
 def suite():
