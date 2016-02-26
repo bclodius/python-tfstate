@@ -90,6 +90,7 @@ class Resource(object):
         self.resource_type = self.native_data.get('type', None)
         self.dependencies = self.native_data.get('depends_on', [])
         self.primary_data = self.native_data.get('primary', {})
+        self.id = self.primary_data['id']
         self.parse_compound_attributes()
 
     @staticmethod

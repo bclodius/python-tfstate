@@ -1,0 +1,16 @@
+{
+    "null_resource.ssh_config": {
+        "type": "null_resource",
+        "depends_on": [
+            "aws_eip.pub_server",
+            "aws_eip.pub_server",
+            "aws_instance.server_pub"
+        ],
+        "primary": {
+            "id": "5649535131968078925",
+            "attributes": {
+                "id": "5649535131968078925"
+            }
+        }
+    }
+}
