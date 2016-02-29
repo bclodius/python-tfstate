@@ -12,14 +12,16 @@ from unit_tests.base import BaseUnitTest
 
 class TfstateUnitTest(BaseUnitTest):
     def test_object_constructor(self):
-        tfstate = Tfstate(self.tfstate_path)
+        tfstate_file = open(self.tfstate_path)
+        tfstate = Tfstate(tfstate_file)
         self.assertEqual(tfstate.version, tfstate.native_data['version'], 'Version attribute does not match')
         self.assertEqual(tfstate.serial, tfstate.native_data['serial'], 'Serial attribute does not match')
         modules_list = [Module(module_data) for module_data in tfstate.native_data['modules']]
         self.assertEqual(tfstate.modules, modules_list, 'Modules objects list does not match')
 
     def test_method_load_tfstate_data_from_file(self):
-        tfstate = Tfstate(self.tfstate_path)
+        tfstate_file = open(self.tfstate_path)
+        tfstate = Tfstate(tfstate_file)
         # Native data are loaded in constructor, reset it for the sake of test
         tfstate.native_data = None
         self.assertIsNone(tfstate.native_data, 'Native data is not None')
@@ -29,7 +31,8 @@ class TfstateUnitTest(BaseUnitTest):
 
 class ModuleUnitTest(BaseUnitTest):
     def test_object_constructor(self):
-        tfstate = Tfstate(self.tfstate_path)
+        tfstate_file = open(self.tfstate_path)
+        tfstate = Tfstate(tfstate_file)
         self.assertGreaterEqual(len(tfstate.native_data['modules']), 1, 'Loaded tfstate does not contain modules')
         first_module = tfstate.native_data['modules'][0]
         tfstate_module = Module(first_module)
@@ -45,7 +48,8 @@ class ModuleUnitTest(BaseUnitTest):
 
 class ResourceUnitTest(BaseUnitTest):
     def test_object_constructor(self):
-        tfstate = Tfstate(self.tfstate_path)
+        tfstate_file = open(self.tfstate_path)
+        tfstate = Tfstate(tfstate_file)
         self.assertGreaterEqual(len(tfstate.native_data['modules']), 1, 'Loaded tfstate does not contain modules')
         module = tfstate.modules[0]
         resource = None
