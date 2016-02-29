@@ -32,11 +32,11 @@ Backporting to Python 2 is at least now out of the question.
 
 3. Type this magic and strange words (you may need to be root or Administrator):
 
-    `python setup.py install`
+    `pip install .`
 
 ### From pip
 
-`pip install python-tfstate`
+`pip install terraform_tfstate`
 
 ## Using python-tfstate
 
