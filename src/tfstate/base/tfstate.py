@@ -33,4 +33,7 @@ class Tfstate(object):
         Read the tfstate file and load its contents, parses then as JSON and put the result into the object
         """
         self.tfstate_file.seek(0)
-        self.native_data = json.load(self.tfstate_file)
+        tfstate_data = self.tfstate_file.read()
+        if isinstance(tfstate_data, bytes):
+            tfstate_data = tfstate_data.decode('utf-8')
+        self.native_data = json.loads(tfstate_data)
