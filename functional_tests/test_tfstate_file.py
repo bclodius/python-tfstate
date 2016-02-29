@@ -13,8 +13,7 @@ from functional_tests.base import BaseFunctionalTest
 
 class TfstateFileFunctionalTest(BaseFunctionalTest):
     def load_tfstate_data_from_file(self):
-        tfstate_file = open(self.tfstate_path, 'r')
-        tfstate_data = json.load(tfstate_file)
+        tfstate_data = json.load(self.tfstate_file)
         self.assertIsInstance(tfstate_data, dict)
 
         return tfstate_data
@@ -31,8 +30,8 @@ class TfstateFileFunctionalTest(BaseFunctionalTest):
 
     def test_i_can_load_a_tfstate_into_object(self):
         # I want to load a tfstate file and load its contents to a Tfstate object
-        tfstate = Tfstate(self.tfstate_path)
-        tfstate_data = self.load_tfstate_data_from_file()
+        tfstate = Tfstate(self.tfstate_file)
+        tfstate_data = tfstate.native_data
         # I want to check that the version attribute is present and matches the original data
         self.assertEqual(tfstate.version, tfstate_data['version'], 'tfstate version does not match')
         # And that the serial is present too and matches as well
@@ -42,7 +41,7 @@ class TfstateFileFunctionalTest(BaseFunctionalTest):
 
     def test_i_can_get_a_list_of_module_objects(self):
         # I want to load a tfstate and get the list of module objects parsed
-        tfstate = Tfstate(self.tfstate_path)
+        tfstate = Tfstate(self.tfstate_file)
         # I want to check that the modules attribute is a list of module objects
         self.assertIsInstance(tfstate.modules, list, 'tfstate modules attribute is not a list')
         for module in tfstate.modules:
@@ -50,7 +49,7 @@ class TfstateFileFunctionalTest(BaseFunctionalTest):
 
     def test_i_can_get_module_attributes(self):
         # I want to load a tfstate, get a module and check its attributes
-        tfstate = Tfstate(self.tfstate_path)
+        tfstate = Tfstate(self.tfstate_file)
         # I get the first module from the tfstate
         self.assertGreaterEqual(len(tfstate.modules), 1, 'tfstate file does not contain modules')
         first_native_module = tfstate.native_data['modules'][0]
@@ -62,7 +61,7 @@ class TfstateFileFunctionalTest(BaseFunctionalTest):
 
     def test_i_can_get_resources_from_module(self):
         # I want to load a tfstate, get a module and get the resources objects from it
-        tfstate = Tfstate(self.tfstate_path)
+        tfstate = Tfstate(self.tfstate_file)
         # I get the first module from the tfstate
         self.assertGreaterEqual(len(tfstate.modules), 1, 'tfstate file does not contain modules')
         first_module = tfstate.modules[0]
@@ -74,7 +73,7 @@ class TfstateFileFunctionalTest(BaseFunctionalTest):
 
     def test_i_can_get_the_correct_resources_from_file(self):
         # I want to load a tfstate, parse its contents and get loaded resources with its correct resource classes
-        tfstate = Tfstate(self.tfstate_path)
+        tfstate = Tfstate(self.tfstate_file)
         # I get the first module from the tfstate
         self.assertGreaterEqual(len(tfstate.modules), 1, 'tfstate file does not contain modules')
         first_module = tfstate.modules[0]
@@ -87,7 +86,7 @@ class TfstateFileFunctionalTest(BaseFunctionalTest):
     def test_i_can_get_the_resources_dependencies_as_objects(self):
         # I want to load a tfstate, parse its contents and look at every resource
         # to check that its dependencies are resource objects
-        tfstate = Tfstate(self.tfstate_path)
+        tfstate = Tfstate(self.tfstate_file)
         # I get the first module from the tfstate
         self.assertGreaterEqual(len(tfstate.modules), 1, 'tfstate file does not contain modules')
         first_module = tfstate.modules[0]

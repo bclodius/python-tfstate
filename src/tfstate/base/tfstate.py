@@ -14,15 +14,15 @@ class Tfstate(object):
 
     Usage::
 
-        Tfstate(file_path)
+        Tfstate(file_descriptor)
     """
 
-    def __init__(self, file_path):
+    def __init__(self, file_descriptor):
         """
-        :param str file_path: tfstate file path
+        :param file file_descriptor: tfstate file descriptor
         """
 
-        self.tfstate_path = file_path
+        self.tfstate_file = file_descriptor
         self.load_tfstate_data_from_file()
         self.version = self.native_data.get('version', None)
         self.serial = self.native_data.get('serial', None)
@@ -32,6 +32,5 @@ class Tfstate(object):
         """
         Read the tfstate file and load its contents, parses then as JSON and put the result into the object
         """
-
-        tfstate_file = open(self.tfstate_path, 'r')
-        self.native_data = json.load(tfstate_file)
+        self.tfstate_file.seek(0)
+        self.native_data = json.load(self.tfstate_file)
