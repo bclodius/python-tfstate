@@ -60,7 +60,7 @@ class Resource(object):
                 parsed_dict = Resource._extend_nested_directory(parsed_dict, parsed_line)
         self.compound_attributes = parsed_dict
 
-    def get_boolean_attribute(self, attribute):
+    def get_boolean_attribute(self, attribute, required=False):
         """
         Parse a boolean attribute to a native python boolean
 
@@ -69,10 +69,12 @@ class Resource(object):
 
         attributes = self.primary_data['attributes']
         value = attributes.get(attribute, None)
-        if value is None:
+        if value is None and required:
             raise AttributeError('Attribute {} does not exist'.format(attribute))
-        else:
+        elif value is not None:
             return True if value == 'true' else False
+        else:
+            return None
 
     @staticmethod
     def load_dict(resources_dict):
