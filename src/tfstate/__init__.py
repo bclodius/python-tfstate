@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-name = 'python-tfstate'
+name = 'terraform_tfstate'
 version = '0.1.0'
 description = 'Python library to parse a Terraform state file (tfstate)'
 author = 'Rodrigo Núñez Mujica'
