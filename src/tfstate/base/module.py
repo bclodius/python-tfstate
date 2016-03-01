@@ -46,9 +46,6 @@ class Module(object):
         """
 
         for resource_name, resource_object in self.resources.items():
-            print(resource_name)
             for relation_name in resource_object.dependencies:
-                print(relation_name)
                 relation_object = self.resources[relation_name]
                 resource_object.relations[relation_name] = relation_object
-                print(resource_object.relations)
