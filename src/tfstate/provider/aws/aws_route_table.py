@@ -19,7 +19,7 @@ class AwsRouteTableResource(AwsResource):
         if self.resource_type != "aws_route_table":
             raise InvalidResource("AwsRouteTableResource must be of 'aws_route_table' type")
         attributes = self.primary_data['attributes']
-        self.vpc_id = attributes['vpc_id']
+        self.vpc_id = attributes.get('vpc_id', None)
 
         self.tags = self.compound_attributes.get('tags', {})
         self.routes = self.compound_attributes.get('route', {})

@@ -19,11 +19,11 @@ class AwsVpcResource(AwsResource):
         if self.resource_type != "aws_vpc":
             raise InvalidResource("AwsVpcResource must be of 'aws_vpc' type")
         attributes = self.primary_data['attributes']
-        self.cidr_block = attributes['cidr_block']
-        self.default_network_acl_id = attributes['default_network_acl_id']
-        self.default_security_group_id = attributes['default_security_group_id']
-        self.dhcp_options_id = attributes['dhcp_options_id']
+        self.cidr_block = attributes.get('cidr_block', None)
+        self.default_network_acl_id = attributes.get('default_network_acl_id', None)
+        self.default_security_group_id = attributes.get('default_security_group_id', None)
+        self.dhcp_options_id = attributes.get('dhcp_options_id', None)
         self.enable_dns_hostnames = self.get_boolean_attribute('enable_dns_hostnames')
         self.enable_dns_support = self.get_boolean_attribute('enable_dns_support')
-        self.main_route_table_id = attributes['main_route_table_id']
+        self.main_route_table_id = attributes.get('main_route_table_id', None)
         self.tags = self.compound_attributes.get('tags', {})

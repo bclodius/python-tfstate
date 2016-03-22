@@ -19,10 +19,10 @@ class AwsSecurityGroupResource(AwsResource):
         if self.resource_type != "aws_security_group":
             raise InvalidResource("AwsSecurityGroupResource must be of 'aws_security_group' type")
         attributes = self.primary_data['attributes']
-        self.description = attributes['description']
-        self.name = attributes['name']
-        self.owner_id = attributes['owner_id']
-        self.vpc_id = attributes['vpc_id']
+        self.description = attributes.get('description', None)
+        self.name = attributes.get('name', None)
+        self.owner_id = attributes.get('owner_id', None)
+        self.vpc_id = attributes.get('vpc_id', None)
         self.tags = self.compound_attributes.get('tags', {})
         self.egress = self.compound_attributes.get('egress', {})
         self.ingress = self.compound_attributes.get('ingress', {})

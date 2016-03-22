@@ -19,5 +19,5 @@ class AwsRouteTableAssociationResource(AwsResource):
         if self.resource_type != "aws_route_table_association":
             raise InvalidResource("AwsRouteTableAssociationResource must be of 'aws_route_table_association' type")
         attributes = self.primary_data['attributes']
-        self.route_table_id = attributes['route_table_id']
-        self.subnet_id = attributes['subnet_id']
+        self.route_table_id = attributes.get('route_table_id', None)
+        self.subnet_id = attributes.get('subnet_id', None)

@@ -19,8 +19,8 @@ class AwsSubnetResource(AwsResource):
         if self.resource_type != "aws_subnet":
             raise InvalidResource("AwsSubnetResource must be of 'aws_subnet' type")
         attributes = self.primary_data['attributes']
-        self.availability_zone = attributes['availability_zone']
-        self.cidr_block = attributes['cidr_block']
-        self.vpc_id = attributes['vpc_id']
+        self.availability_zone = attributes.get('availability_zone', None)
+        self.cidr_block = attributes.get('cidr_block', None)
+        self.vpc_id = attributes.get('vpc_id', None)
         self.map_public_ip_on_launch = self.get_boolean_attribute('map_public_ip_on_launch')
         self.tags = self.compound_attributes.get('tags', {})
