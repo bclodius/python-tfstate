@@ -20,10 +20,10 @@ class AwsEipResource(AwsResource):
             raise InvalidResource("AwsEipResource must be of 'aws_eip' type")
 
         attributes = self.primary_data['attributes']
-        self.association_id = attributes['association_id']
-        self.domain = attributes['domain']
-        self.instance = attributes['instance']
-        self.network_interface = attributes['network_interface']
-        self.private_ip = attributes['private_ip']
-        self.public_ip = attributes['public_ip']
-        self.vpc = attributes['vpc']
+        self.association_id = attributes.get('association_id', None)
+        self.domain = attributes.get('domain', None)
+        self.instance = attributes.get('instance', None)
+        self.network_interface = attributes.get('network_interface', None)
+        self.private_ip = attributes.get('private_ip', None)
+        self.public_ip = attributes.get('public_ip', None)
+        self.vpc = attributes.get('vpc', None)

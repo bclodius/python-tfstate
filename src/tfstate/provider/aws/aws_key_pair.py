@@ -19,6 +19,6 @@ class AwsKeyPairResource(AwsResource):
         if self.resource_type != "aws_key_pair":
             raise InvalidResource("AwsKeyPairResource must be of 'aws_key_pair' type")
         attributes = self.primary_data['attributes']
-        self.key_name = attributes['key_name']
-        self.public_key = attributes['public_key']
+        self.key_name = attributes.get('key_name', None)
+        self.public_key = attributes.get('public_key', None)
         self.metadata = self.primary_data['meta']
