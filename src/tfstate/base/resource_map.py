@@ -11,12 +11,15 @@ class ResourceMap(object):
 
     RESOURCE_MAP = {
         'aws_eip': aws.AwsEipResource,
+        'aws_elb': aws.AwsElbResource,
+        'aws_iam_server_certificate': aws.AwsIamServerCertificateResource,
         'aws_instance': aws.AwsInstanceResource,
         'aws_internet_gateway': aws.AwsInternetGatewayResource,
         'aws_key_pair': aws.AwsKeyPairResource,
         'aws_route_table': aws.AwsRouteTableResource,
         'aws_route_table_association': aws.AwsRouteTableAssociationResource,
         'aws_security_group': aws.AwsSecurityGroupResource,
+        'aws_security_group_rule': aws.AwsSecurityGroupRuleResource,
         'aws_subnet': aws.AwsSubnetResource,
         'aws_vpc': aws.AwsVpcResource,
         'null_resource': other.NullResource,
