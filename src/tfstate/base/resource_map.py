@@ -16,12 +16,14 @@ class ResourceMap(object):
         'aws_instance': aws.AwsInstanceResource,
         'aws_internet_gateway': aws.AwsInternetGatewayResource,
         'aws_key_pair': aws.AwsKeyPairResource,
+        'aws_nat_gateway': aws.AwsNatGatewayResource,
         'aws_route_table': aws.AwsRouteTableResource,
         'aws_route_table_association': aws.AwsRouteTableAssociationResource,
         'aws_security_group': aws.AwsSecurityGroupResource,
         'aws_security_group_rule': aws.AwsSecurityGroupRuleResource,
         'aws_subnet': aws.AwsSubnetResource,
         'aws_vpc': aws.AwsVpcResource,
+        'aws_vpc_peering_connection': aws.AwsVpcPeeringConnectionResource,
         'null_resource': other.NullResource,
     }
 

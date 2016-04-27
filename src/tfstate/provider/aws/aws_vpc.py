@@ -27,3 +27,24 @@ class AwsVpcResource(AwsResource):
         self.enable_dns_support = self.get_boolean_attribute('enable_dns_support')
         self.main_route_table_id = attributes.get('main_route_table_id', None)
         self.tags = self.compound_attributes.get('tags', {})
+
+
+class AwsVpcPeeringConnectionResource(AwsResource):
+    """
+    Provides an AWS VPC resource.
+
+    Usage::
+
+        AwsVpcPeeringConnectionResource(name, native_data)
+    """
+
+    def __init__(self, resource_name, native_data):
+        super().__init__(resource_name, native_data)
+        if self.resource_type != "aws_vpc_peering_connection":
+            raise InvalidResource("AwsVpcPeeringConnectionResource must be of 'aws_vpc_peering_connection' type")
+        attributes = self.primary_data['attributes']
+        self.accept_status = attributes.get('accept_status', None)
+        self.peer_owner_id = attributes.get('peer_owner_id', None)
+        self.peer_vpc_id = attributes.get('peer_vpc_id', None)
+        self.vpc_id = attributes.get('vpc_id', None)
+        self.tags = self.compound_attributes.get('tags', {})
