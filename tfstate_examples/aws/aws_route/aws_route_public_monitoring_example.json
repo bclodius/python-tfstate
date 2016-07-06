@@ -1,0 +1,26 @@
+{
+  "aws_route.public_monitoring": {
+      "type": "aws_route",
+      "depends_on": [
+          "aws_route_table.public",
+          "aws_vpc_peering_connection.monitoring"
+        ],
+        "primary": {
+          "id": "r-rtb-3b61fc5f3196965804",
+          "attributes": {
+              "destination_cidr_block": "10.33.0.0/16",
+              "destination_prefix_list_id": "",
+              "gateway_id": "",
+              "id": "r-rtb-3b61fc5f3196965804",
+              "instance_id": "",
+              "instance_owner_id": "",
+              "nat_gateway_id": "",
+              "network_interface_id": "",
+              "origin": "CreateRoute",
+              "route_table_id": "rtb-3b61fc5f",
+              "state": "blackhole",
+              "vpc_peering_connection_id": "pcx-6d2c8404"
+            }
+          }
+        }
+}

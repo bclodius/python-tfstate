@@ -1,0 +1,26 @@
+{
+  "aws_route.public_internet": {
+      "type": "aws_route",
+      "depends_on": [
+          "aws_internet_gateway.main",
+          "aws_route_table.public"
+        ],
+        "primary": {
+          "id": "r-rtb-3b61fc5f1080289494",
+          "attributes": {
+              "destination_cidr_block": "0.0.0.0/0",
+              "destination_prefix_list_id": "",
+              "gateway_id": "igw-a4f0c1c1",
+              "id": "r-rtb-3b61fc5f1080289494",
+              "instance_id": "",
+              "instance_owner_id": "",
+              "nat_gateway_id": "",
+              "network_interface_id": "",
+              "origin": "CreateRoute",
+              "route_table_id": "rtb-3b61fc5f",
+              "state": "active",
+              "vpc_peering_connection_id": ""
+            }
+          }
+        }
+}

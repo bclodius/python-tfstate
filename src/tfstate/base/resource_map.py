@@ -17,6 +17,7 @@ class ResourceMap(object):
         'aws_internet_gateway': aws.AwsInternetGatewayResource,
         'aws_key_pair': aws.AwsKeyPairResource,
         'aws_nat_gateway': aws.AwsNatGatewayResource,
+        'aws_route': aws.AwsRouteResource,
         'aws_route_table': aws.AwsRouteTableResource,
         'aws_route_table_association': aws.AwsRouteTableAssociationResource,
         'aws_security_group': aws.AwsSecurityGroupResource,
