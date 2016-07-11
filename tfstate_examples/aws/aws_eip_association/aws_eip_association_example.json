@@ -1,0 +1,19 @@
+{
+  "aws_eip_association.eip_backend_assoc": {
+      "type": "aws_eip_association",
+      "depends_on": [
+          "aws_instance.backend_a"
+        ],
+        "primary": {
+          "id": "eipassoc-1903a27f",
+          "attributes": {
+              "allocation_id": "eipalloc-6a1f540f",
+              "id": "eipassoc-1903a27f",
+              "instance_id": "i-007fa714615b14616",
+              "network_interface_id": "eni-985df3d5",
+              "private_ip_address": "10.51.1.8",
+              "public_ip": "52.51.130.144"
+            }
+          }
+        }
+}
