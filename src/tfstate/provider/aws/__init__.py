@@ -14,3 +14,4 @@ from tfstate.provider.aws.aws_instance import AwsInstanceResource
 from tfstate.provider.aws.aws_security_group import AwsSecurityGroupResource, AwsSecurityGroupRuleResource
 from tfstate.provider.aws.aws_nat_gateway import AwsNatGatewayResource
 from tfstate.provider.aws.aws_route import AwsRouteResource
+from tfstate.provider.aws.aws_eip_association import AwsEipAssociation
