@@ -1,4 +1,4 @@
-# python-tfstate 0.3.2
+# python-tfstate 0.3.3
 
 [![Build Status](https://travis-ci.org/rodynnz/python-tfstate.svg?branch=master)](https://travis-ci.org/rodynnz/python-tfstate)
 
