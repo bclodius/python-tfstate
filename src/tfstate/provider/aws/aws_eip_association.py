@@ -19,5 +19,8 @@ class AwsEipAssociation(AwsResource):
         if self.resource_type != "aws_eip_association":
             raise InvalidResource("AwsEipAssociation must be of 'aws_eip_association' type")
         attributes = self.primary_data['attributes']
-        self.route_table_id = attributes.get('route_table_id', None)
-        self.subnet_id = attributes.get('subnet_id', None)
+        self.allocation_id = attributes.get('allocation_id', None)
+        self.instance_id = attributes.get('instance_id', None)
+        self.network_interface_id = attributes.get('network_interface_id', None)
+        self.private_ip_address = attributes.get('private_ip_address', None)
+        self.public_ip = attributes.get('public_ip', None)
