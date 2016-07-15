@@ -11,6 +11,7 @@ class ResourceMap(object):
 
     RESOURCE_MAP = {
         'aws_eip': aws.AwsEipResource,
+        'aws_eip_association': aws.AwsEipAssociation,
         'aws_elb': aws.AwsElbResource,
         'aws_iam_server_certificate': aws.AwsIamServerCertificateResource,
         'aws_instance': aws.AwsInstanceResource,
