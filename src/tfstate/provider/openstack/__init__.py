@@ -1,0 +1,12 @@
+# -*- coding: utf-8 -*-
+
+from tfstate.provider.openstack.base import OpenStackResource
+from tfstate.provider.openstack.openstack_blockstorage_volume_v2 import OSBlockstorageVolumeV2
+from tfstate.provider.openstack.openstack_compute_floatingip_v2 import OSComputeFloatingIPV2
+from tfstate.provider.openstack.openstack_compute_instance_v2 import OSComputeInstanceV2
+from tfstate.provider.openstack.openstack_compute_keypair_v2 import OSComputeKeypairV2
+from tfstate.provider.openstack.openstack_networking_network_v2 import OSNetworkingNetworkV2
+from tfstate.provider.openstack.openstack_networking_router_interface_v2 import OSNetworkingRouterInterfaceV2
+from tfstate.provider.openstack.openstack_networking_secgroup_v2 import OSNetworkingSecgroupV2
+from tfstate.provider.openstack.openstack_networking_secgroup_rule_v2 import OSNetworkingSecgroupRuleV2
+from tfstate.provider.openstack.openstack_networking_subnet_v2 import OSNetworkingSubnetV2
