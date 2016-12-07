@@ -16,12 +16,14 @@ class Resource(object):
         return name and native_data
 
     def __init__(self, resource_name, native_data):
-        self.provider = None
+        self.terraform_provider = None
         self.native_data = native_data
         self.resource_name = resource_name
         self.resource_type = self.native_data.get('type', None)
         self.dependencies = self.native_data.get('depends_on', [])
         self.primary_data = self.native_data.get('primary', {})
+        self.deposed = self.native_data.get('deposed', [])
+        self.provider = self.native_data.get('provider', None)
         self.id = self.primary_data['id']
         self.parse_compound_attributes()
         self.relations = {}
@@ -55,7 +57,7 @@ class Resource(object):
         parsed_dict = {}
         for name, value in self.primary_data['attributes'].items():
             name_list = name.split('.')
-            if len(name_list) > 1 and name_list[len(name_list)-1] != '#':
+            if len(name_list) > 1 and name_list[len(name_list)-1] not in ['#', '%']:
                 parsed_line = Resource._parse_nested_parameters(name_list, value)
                 parsed_dict = Resource._extend_nested_directory(parsed_dict, parsed_line)
         self.compound_attributes = parsed_dict

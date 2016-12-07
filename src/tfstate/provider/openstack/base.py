@@ -4,15 +4,15 @@
 from tfstate.base import Resource
 
 
-class AwsResource(Resource):
+class OpenStackResource(Resource):
     """
-    Class to represent an AWS provided resource
+    Class to represent an OpenStack provided resource
 
     Usage::
 
-        AwsResource(name, native_data)
+        OpenStackResource(name, native_data)
     """
 
     def __init__(self, resource_name, native_data):
         super().__init__(resource_name, native_data)
-        self.terraform_provider = "aws"
+        self.terraform_provider = "openstack"

@@ -24,6 +24,7 @@ class Module(object):
         self.native_data = native_data
         self.path = self.native_data.get('path', None)
         self.outputs = self.native_data.get('outputs', None)
+        self.depends_on = self.native_data.get('depends_on', [])
         self.resources = Resource.load_dict(self.native_data.get('resources', {}))
 
         self.parse_resource_relations()
