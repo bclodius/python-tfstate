@@ -48,11 +48,11 @@ class ResourceMap(object):
         :raises NotImplementedError: If a resource is not implemented yet
         """
         splitted_name = resource_name.split('.')
-
-        if len(splitted_name) == 2:
+        if len(splitted_name) > 0:
             resource_type = splitted_name[0]
-        else:
-            resource_type = '_'.join(splitted_name[:-1])
+            if resource_type == 'data_template':
+                resource_type = '_'.join(splited_name[:-1])
+
         resource_class = ResourceMap.RESOURCE_MAP.get(resource_type, None)
         if resource_class is None:
             raise NotImplementedError('Resource {} not implemented yet'.format(resource_name))
