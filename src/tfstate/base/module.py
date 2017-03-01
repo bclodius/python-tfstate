@@ -27,7 +27,7 @@ class Module(object):
         self.depends_on = self.native_data.get('depends_on', [])
         self.resources = Resource.load_dict(self.native_data.get('resources', {}))
 
-        #self.parse_resource_relations()
+        self.parse_resource_relations()
 
     @staticmethod
     def load_list(module_list):
@@ -48,5 +48,8 @@ class Module(object):
 
         for resource_name, resource_object in self.resources.items():
             for relation_name in resource_object.dependencies:
-                relation_object = self.resources[relation_name]
-                resource_object.relations[relation_name] = relation_object
+                try:
+                    relation_object = self.resources[relation_name]
+                    resource_object.relations[relation_name] = relation_object
+                except KeyError:
+                    print('Warning possible optional resource not found:{}'.format(relation_name))
