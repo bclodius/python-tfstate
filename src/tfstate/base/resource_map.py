@@ -10,19 +10,31 @@ class ResourceMap(object):
     """
 
     RESOURCE_MAP = {
+        'archive_file': other.ArchiveFileResource,
+        'aws_autoscaling_group': aws.AwsAutoScalingGroupResource,
+        'aws_autoscaling_policy': aws.AwsAutoScalingPolicyResource,
+        'aws_cloudwatch_metric_alarm': aws.AwsCloudWatchMetricAlarmResource,
         'aws_eip_association': aws.AwsEipAssociation,
         'aws_eip': aws.AwsEipResource,
+        'aws_elasticache_replication_group': aws.AwsElasticCacheReplicationGroupResource,
+        'aws_elasticache_subnet_group': aws.AwsElasticCacheSubnetGroupResource,
         'aws_elb': aws.AwsElbResource,
         'aws_iam_server_certificate': aws.AwsIamServerCertificateResource,
         'aws_instance': aws.AwsInstanceResource,
         'aws_internet_gateway': aws.AwsInternetGatewayResource,
+        'aws_lambda_function': aws.AwsLambdaFunctionResource,
+        'aws_lambda_permission': aws.AwsLambdaPermissionResource,
+        'aws_launch_configuration': aws.AwsLaunchConfigurationResource,
         'aws_key_pair': aws.AwsKeyPairResource,
         'aws_nat_gateway': aws.AwsNatGatewayResource,
+        'aws_route53_record': aws.AwsRoute53RecordResource,
         'aws_route': aws.AwsRouteResource,
         'aws_route_table': aws.AwsRouteTableResource,
         'aws_route_table_association': aws.AwsRouteTableAssociationResource,
         'aws_security_group': aws.AwsSecurityGroupResource,
         'aws_security_group_rule': aws.AwsSecurityGroupRuleResource,
+        'aws_sns_topic': aws.AwsSnsTopicResource,
+        'aws_sns_topic_subscription': aws.AwsSnsTopicSubscriptionResource,
         'aws_subnet': aws.AwsSubnetResource,
         'aws_vpc': aws.AwsVpcResource,
         'aws_vpc_peering_connection': aws.AwsVpcPeeringConnectionResource,
@@ -35,8 +47,11 @@ class ResourceMap(object):
         'openstack_networking_secgroup_v2': openstack.OSNetworkingSecgroupV2,
         'openstack_networking_secgroup_rule_v2': openstack.OSNetworkingSecgroupRuleV2,
         'openstack_networking_subnet_v2': openstack.OSNetworkingSubnetV2,
+        'data_aws_ami': aws.DataAwsAmiResource,
+        'data_aws_caller_identity': aws.DataAwsCallerIdentityResource,
         'data_template_file': template.DataTemplateFileResource,
         'null_resource': other.NullResource,
+        'data_null_data_source': other.NullDataSource,
     }
 
     @staticmethod

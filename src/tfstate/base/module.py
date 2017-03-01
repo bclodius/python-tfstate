@@ -27,7 +27,7 @@ class Module(object):
         self.depends_on = self.native_data.get('depends_on', [])
         self.resources = Resource.load_dict(self.native_data.get('resources', {}))
 
-        self.parse_resource_relations()
+        #self.parse_resource_relations()
 
     @staticmethod
     def load_list(module_list):

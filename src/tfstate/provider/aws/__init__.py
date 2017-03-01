@@ -15,3 +15,16 @@ from tfstate.provider.aws.aws_security_group import AwsSecurityGroupResource, Aw
 from tfstate.provider.aws.aws_nat_gateway import AwsNatGatewayResource
 from tfstate.provider.aws.aws_route import AwsRouteResource
 from tfstate.provider.aws.aws_eip_association import AwsEipAssociation
+from tfstate.provider.aws.aws_route53_record import AwsRoute53RecordResource
+from tfstate.provider.aws.data_aws_ami import DataAwsAmiResource
+from tfstate.provider.aws.data_aws_caller_identity import DataAwsCallerIdentityResource
+from tfstate.provider.aws.aws_autoscaling_group import AwsAutoScalingGroupResource
+from tfstate.provider.aws.aws_autoscaling_policy import AwsAutoScalingPolicyResource
+from tfstate.provider.aws.aws_cloudwatch_metric_alarm import AwsCloudWatchMetricAlarmResource
+from tfstate.provider.aws.aws_elasticache_replication_group import AwsElasticCacheReplicationGroupResource
+from tfstate.provider.aws.aws_elasticache_subnet_group import AwsElasticCacheSubnetGroupResource
+from tfstate.provider.aws.aws_lambda_function import AwsLambdaFunctionResource
+from tfstate.provider.aws.aws_lambda_permission import AwsLambdaPermissionResource
+from tfstate.provider.aws.aws_launch_configuration import AwsLaunchConfigurationResource
+from tfstate.provider.aws.aws_sns_topic import AwsSnsTopicResource
+from tfstate.provider.aws.aws_sns_topic_subscription import AwsSnsTopicSubscriptionResource
