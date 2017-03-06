@@ -48,5 +48,8 @@ class Module(object):
 
         for resource_name, resource_object in self.resources.items():
             for relation_name in resource_object.dependencies:
-                relation_object = self.resources[relation_name]
-                resource_object.relations[relation_name] = relation_object
+                try:
+                    relation_object = self.resources[relation_name]
+                    resource_object.relations[relation_name] = relation_object
+                except KeyError:
+                    print('Warning possible optional resource not found:{}'.format(relation_name))
