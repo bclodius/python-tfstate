@@ -18,6 +18,7 @@ from tfstate.provider.aws.aws_eip_association import AwsEipAssociation
 from tfstate.provider.aws.aws_route53_record import AwsRoute53RecordResource
 from tfstate.provider.aws.data_aws_ami import DataAwsAmiResource
 from tfstate.provider.aws.data_aws_caller_identity import DataAwsCallerIdentityResource
+from tfstate.provider.aws.data_aws_security_group import DataAwsSecurityGroupResource
 from tfstate.provider.aws.aws_autoscaling_group import AwsAutoScalingGroupResource
 from tfstate.provider.aws.aws_autoscaling_policy import AwsAutoScalingPolicyResource
 from tfstate.provider.aws.aws_cloudwatch_metric_alarm import AwsCloudWatchMetricAlarmResource

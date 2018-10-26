@@ -1,4 +1,4 @@
-# python-tfstate 0.5.0
+# python-tfstate 0.6.0
 
 [![Build Status](https://travis-ci.org/rodynnz/python-tfstate.svg?branch=master)](https://travis-ci.org/rodynnz/python-tfstate)
 
@@ -15,6 +15,7 @@ Backporting to Python 2 is at least now out of the question.
 ### Supported versions:
 - Python 3.4
 - Python 3.5
+- Python 3.6
 
 ### Untested versions:
 - Python 3.3
@@ -37,6 +38,12 @@ Backporting to Python 2 is at least now out of the question.
 ### From pip
 
 `pip install terraform_tfstate`
+
+### Testing
+
+1. `pip install -r requirements/tests.txt`
+
+2. `py.test -v unit_tests`
 
 ## Using python-tfstate
 

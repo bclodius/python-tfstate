@@ -1,0 +1,26 @@
+{
+  "data.aws_security_group.test": {
+    "type": "aws_security_group",
+    "primary": {
+      "id": "sg-12345678",
+      "attributes": {
+        "arn": "arn:aws:ec2:test:test:security-group/sg-12345678",
+        "description": "Some description sg-12345678",
+        "filter.#": "2",
+        "filter.1531540829.name": "tag:Billing",
+        "filter.1531540829.values.#": "1",
+        "filter.1531540829.values.2017647977": "Test",
+        "filter.3754551869.name": "vpc-id",
+        "filter.3754551869.values.#": "1",
+        "filter.3754551869.values.747486891": "vpc-12345678",
+        "id": "sg-12345678",
+        "name": "test",
+        "tags.#": "3",
+        "tags.Billing": "Test",
+        "tags.Env": "Test",
+        "tags.Name": "Test-SG-Example",
+        "vpc_id": "vpc-12345678"
+      }
+    }
+  }
+}
