@@ -54,6 +54,7 @@ class ResourceMap(object):
         'data_template_file': template.DataTemplateFileResource,
         'null_resource': other.NullResource,
         'data_null_data_source': other.NullDataSource,
+        'data_aws_security_group': aws.DataAwsSecurityGroupResource,
     }
 
     @staticmethod
