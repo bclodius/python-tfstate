@@ -1,0 +1,21 @@
+{
+    "data.null_data_source.tags.0": {
+        "type": "null_data_source",
+        "primary": {
+            "id": "static",
+            "attributes": {
+                "has_computed_default": "default",
+                "id": "static",
+                "inputs.%": "3",
+                "inputs.key": "Name",
+                "inputs.propagate_at_launch": "true",
+                "inputs.value": "NullDataSourceTest",
+                "outputs.%": "3",
+                "outputs.key": "Name",
+                "outputs.propagate_at_launch": "true",
+                "outputs.value": "NullDataSourceTest",
+                "random": "76582349081"
+            }
+        }
+    }
+}
