@@ -1,0 +1,16 @@
+{
+  "aws_autoscaling_notification.test": {
+    "type": "aws_autoscaling_notification",
+    "primary": {
+      "id": "arn:aws:sns:us-east-1:12345678910:test-id",
+      "attributes": {
+        "group_names.#": "1",
+        "group_names.123456789": "asg-test-ast-12389571295",
+        "id": "arn:aws:sns:us-east-1:12345678910:test-id",
+        "notifications.#": "1",
+        "notifications.123456789": "autoscaling:EC2_INSTANCE_TERMINATE",
+        "topic_arn": "arn:aws:sns:us-east-1:12345678910:test-id"
+      }
+    }
+  }
+}

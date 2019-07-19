@@ -31,3 +31,4 @@ from tfstate.provider.aws.aws_sns_topic import AwsSnsTopicResource
 from tfstate.provider.aws.aws_sns_topic_subscription import AwsSnsTopicSubscriptionResource
 from tfstate.provider.aws.aws_lb_ssl_negotiation_policy import AwsLBSSLNegotiationPolicyResource
 from tfstate.provider.aws.aws_proxy_protocol_policy import AwsProxyProtocolPolicyResource
+from tfstate.provider.aws.aws_autoscaling_notification import AwsAutoscalingNotificationResource
