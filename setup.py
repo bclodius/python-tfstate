@@ -16,9 +16,10 @@ classifiers = [
     'Operating System :: OS Independent',
     'Programming Language :: Python :: 3.4',
     'Programming Language :: Python :: 3.5',
+    'Programming Language :: Python :: 3.6',
+    'Programming Language :: Python :: 3.7',
     'Topic :: Software Development :: Libraries :: Python Modules'
 ]
-
 
 setup(
     # Package info
@@ -26,7 +27,6 @@ setup(
     version=tfstate.version,
     description=tfstate.description,
     author=tfstate.author,
-    author_email=tfstate.author_email,
     url='',
     long_description=tfstate.description,
 
@@ -41,5 +41,4 @@ setup(
 
     # Dependencies
     install_requires=install_requires,
-
 )

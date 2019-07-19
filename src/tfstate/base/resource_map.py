@@ -12,6 +12,7 @@ class ResourceMap(object):
     RESOURCE_MAP = {
         'archive_file': other.ArchiveFileResource,
         'aws_autoscaling_group': aws.AwsAutoScalingGroupResource,
+        'aws_autoscaling_notification': aws.AwsAutoscalingNotificationResource,
         'aws_autoscaling_policy': aws.AwsAutoScalingPolicyResource,
         'aws_cloudwatch_metric_alarm': aws.AwsCloudWatchMetricAlarmResource,
         'aws_eip_association': aws.AwsEipAssociation,
