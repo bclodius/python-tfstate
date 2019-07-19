@@ -70,6 +70,9 @@ class ResourceMap(object):
             resource_type = splitted_name[0]
             if resource_type == 'data':
                 resource_type = '_'.join(splitted_name[:-1])
+                # Handles case for dynamic count based resources example: data.null.data.source.tags.0
+                if resource_type not in ResourceMap.RESOURCE_MAP:
+                    resource_type = '_'.join(splitted_name[:-2])
 
         resource_class = ResourceMap.RESOURCE_MAP.get(resource_type, None)
         if resource_class is None:
